@@ -1,12 +1,11 @@
-# Wiki-
-Wiki Content Management System
+# Wiki Content Management System
 Ce projet vise à créer un système de gestion de contenu efficace pour Wiki, associé à une interface utilisateur conviviale. L'objectif principal est d'offrir une expérience exceptionnelle aux utilisateurs, en permettant aux administrateurs de gérer facilement les catégories, les tags et les wikis, tout en offrant aux auteurs la possibilité de créer, modifier et supprimer leur propre contenu.
 
-Contexte du Projet
+## Contexte du Projet
 Wiki aspire à devenir un lieu collaboratif où tout le monde peut travailler ensemble, créer, trouver et partager des wikis de manière facile et intéressante.
 
-Fonctionnalités Clés
-Partie Back Office
+## Fonctionnalités Clés
+>Partie Back Office
 Gestion des Catégories (Admin)
 Créer, modifier et supprimer des catégories pour organiser le contenu.
 Associer plusieurs wikis à une catégorie.
@@ -22,9 +21,9 @@ Les administrateurs peuvent archiver les wikis inappropriés pour maintenir un e
 Tableau de Bord (Dashboard)
 Page d'accueil du tableau de bord avec consultation des statistiques des entités.
 Partie Front Office
-Login et Register
+- Login et Register
 Création de compte (Register) et connexion (Login) avec redirection vers le tableau de bord pour les administrateurs et la page d'accueil pour les utilisateurs standards.
-Barre de Recherche
+- Barre de Recherche
 Barre de recherche AJAX pour rechercher des wikis, des catégories et des tags sans nécessiter de rafraîchissement de la page.
 Affichage des Derniers Wikis
 Page d'accueil ou section dédiée affichant les derniers wikis ajoutés pour un accès rapide au contenu le plus récent.
@@ -32,7 +31,7 @@ Affichage des Dernières Catégories
 Section distincte présentant les dernières catégories créées ou mises à jour pour permettre aux utilisateurs de découvrir rapidement les thèmes récemment ajoutés.
 Redirection vers la Page Unique des Wikis
 En cliquant sur un wiki, redirection vers une page unique dédiée avec des détails complets tels que le contenu, les catégories associées, les tags et les informations sur l'auteur.
-Technologies Requises
+>Technologies Requises
 Frontend: HTML5, CSS Framework, Javascript
 Backend: PHP 8 avec architecture MVC
 Base de Données: PDO driver

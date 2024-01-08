@@ -53,7 +53,7 @@ class Router
     public function setStatusCode($statusCode)
     {
         http_response_code($statusCode);
-        include(__DIR__ . "/../app/View/main/" . $statusCode . ".view.php");
+        include(__DIR__ . "/../app/View/" . $statusCode . ".php");
         die();
     }
 }

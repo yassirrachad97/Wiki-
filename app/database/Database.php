@@ -9,7 +9,7 @@ class Database {
     private $password = "";
     private $database = "WIKI";
     private $conn;
-
+    private $stmt;
     public function __construct() {
         try {
             $dsn = "mysql:host={$this->host};dbname={$this->database}";
@@ -24,6 +24,7 @@ class Database {
     public function getConnection() {
         return $this->conn;
     }
+   
 }
 
 ?>

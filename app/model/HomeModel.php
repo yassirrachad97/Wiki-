@@ -10,36 +10,27 @@ use App\Database\Database;
 class HomeModel {
     private $db;
 
-    private $nom;
-    private $description;
-    private $etat;
+    private $title;
+    private $content;
     private $date;
   
 
     public function __construct() {
         $this->db = new Database();
     }
-   public function setNome($nom) {
-    $this->nom = $nom;
+   public function setTitle($title) {
+    $this->title = $title;
    }
-  public function getNom() {
-    return $this->nom;
+  public function getTitle() {
+    return $this->title;
   }
 
-  public function setDescription($description) {
-    $this->description = $description;
+  public function setContent($content) {
+    $this->content = $content;
   }
-  public function getDescription() {
-    return $this->description;
+  public function getContent() {
+    return $this->content;
   }
-
-  public function setEtat($etat) {
-        $this->etat = $etat;
-  }
-  public function getEtat() {
-    return $this->etat;
-  }
-
 
   
 public function setDate($date) {
@@ -51,23 +42,23 @@ return $this->date;
 
   public function save() {
     $conn = $this->db->getConnection();
-        $sql = "INSERT INTO `tasks`(`name`, `description`, `status`, `deadline`) VALUES (?, ?, ?, ? )";
+        $sql = "INSERT INTO `wiki`(`title`, `content`, `creation_date`) VALUES (?, ?, ?, ? )";
       
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$this->getNom(), $this->getDescription(), $this->getEtat(), $this->getDate()]);
+        $stmt->execute([$this->getTitle(), $this->getContent(), $this->getDate()]);
         if($stmt){
             return true;
         }
   }
 
-  public function Updatetask($id){
+  public function UpdateWiki($id){
        
     $conn = $this->db->getConnection();
 
-    $sql = "UPDATE `tasks`   SET `name` = ? , `description` = ? ,  `status` = ? , `deadline` = ?  WHERE `id` = ? ";
+    $sql = "UPDATE `wiki`   SET `title` = ? , `content` = ? ,  `creation_date` = ?  WHERE `id` = ? ";
 
     $stmt = $conn->prepare($sql);
-    $result=  $stmt->execute([$this->getNom(), $this->getDescription(), $this->getEtat(), $this->getDate() , $id]);
+    $result=  $stmt->execute([$this->getTitle(), $this->getContent(), $this->getDate(), $id]);
     if($result){
         return true;
     }
@@ -79,7 +70,7 @@ return $this->date;
 
   public function findAll() {
     $conn = $this->db->getConnection();
-    $sql = "SELECT * FROM `tasks`";
+    $sql = "SELECT * FROM `wiki`";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -88,9 +79,9 @@ return $this->date;
     }
 }
 
-public function deletTask($id) {    
+public function deletWiki($id) {    
     $conn = $this->db->getConnection();
-    $sql = "DELETE FROM `tasks` Where id = ?";
+    $sql = "DELETE FROM `wiki` Where id = ?";
     $stmt = $conn->prepare($sql);
     $result= $stmt->execute([$id]);
     if($result){
@@ -102,7 +93,7 @@ public function deletTask($id) {
 
 public function searchByName($searchTerm) {
     $conn = $this->db->getConnection();
-    $sql = "SELECT * FROM `tasks` WHERE `name` LIKE ?";
+    $sql = "SELECT * FROM `wiki` WHERE `title` LIKE ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute(["%$searchTerm%"]);
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);

@@ -2,11 +2,10 @@
 
 <?php foreach ($searchResults as $task) : ?>
     <tr>
-        <td><?= $task->id ?></td>
-        <td><?= $task->name ?></td>
-        <td><?= $task->description ?></td>
-        <td><?= $task->status ?></td>
-        <td><?= $task->deadline ?></td>
+        <td><?= $wiki->id ?></td>
+        <td><?= $wiki->title ?></td>
+        <td><?= $wiki->content ?></td>
+        <td><?= $wiki->date ?></td>
        
         <td>
             <a href="#" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#addTaskModala<?= $task->id ?>">Modifier</a>

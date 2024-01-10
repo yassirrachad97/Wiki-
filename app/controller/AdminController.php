@@ -13,10 +13,10 @@ class AdminController {
         $tagCount = $adminModel->getTagCount();
         $wikiCount = $adminModel->getWikiCount();
 
-        include_once '../app/View/admin/statistique.php';
+        include_once '../app/View/statistique.php';
     }
     public function category(){
-        include_once '../app/View/admin/category.php';
+        include_once '../app/View/category.php';
     }
   
 }

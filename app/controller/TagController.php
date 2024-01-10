@@ -20,7 +20,7 @@ class TagController {
     public function getTags(){
          $tag = new TagModel();
          $tags=$tag->findAll();
-         include_once '../app/View/admin/tags.php';
+         include_once '../app/View/tags.php';
     }
 
     public function search() {

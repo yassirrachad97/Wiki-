@@ -20,7 +20,7 @@ class CategoryController {
     public function getCategories(){
          $category = new CategoryModel();
          $categoreis=$category->findAll();
-         include_once '../app/View/admin/category.php';
+         include_once '../app/View/category.php';
     }
 
     public function search() {
@@ -29,7 +29,7 @@ class CategoryController {
             $category = new CategoryModel();
             $searchResults = $category->searchByName($searchTerm);
         if($searchResults){
-            include_once '../app/View/admin/includesAjax/category.php';
+            include_once '../app/View/includesAjax/category.php';
             exit(); 
         }
             

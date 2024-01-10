@@ -44,7 +44,6 @@ class AuthController {
                 $_SESSION['email']= $user->email;
                 $_SESSION['firstname']= $user->first_name;
                 $_SESSION['lastname']=$user->laste_name;
-                $_SESSION['role']=$user->role;
                 $_SESSION['user_id']=$user->userID;
              $affichage=new AdminController();
              $affichage->index();

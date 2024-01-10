@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Liste des Tâches</title>
+    <title>wikiLogin</title>
 </head>
 
 <body>
@@ -43,7 +43,7 @@
 
                 <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
-                <button type="submit" class="btn btn-outline-light btn-lg px-5" name="ok">Login</button>
+                <button type="submit" class="btn btn-outline-light btn-lg px-5" name="submit" value="login">Login</button>
               </form>
               <div class="d-flex justify-content-center text-center mt-4 pt-1">
                 <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>

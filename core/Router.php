@@ -2,7 +2,7 @@
 
 class Router
 {
-    private $controller = 'App\Controller\HomeController';
+    private $controller = 'App\Controller\AuthController';
     private $method = 'index';
     private $param = [];
 

@@ -48,7 +48,7 @@ class CategoryModel{
    public function update($id){
        
     $conn = $this->db->getConnection();
-    $sql = "UPDATE `category`   SET `name` = ?  WHERE `categoryID` = ? ";
+    $sql = "UPDATE `category`   SET `name` = ?  WHERE `id` = ? ";
     $stmt = $conn->prepare($sql);
     $result=  $stmt->execute([$this->getName(), $id]);
     if($result){
@@ -58,20 +58,11 @@ class CategoryModel{
 
 }
 
-   public function searchByName($searchTerm) {
-    $conn = $this->db->getConnection();
-    $sql = "SELECT * FROM `category` WHERE `name` LIKE ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute(["%$searchTerm%"]);
-    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-    if ($result) {
-        return $result;
-    }
-}
+
 
 public function delete($id) {
     $conn = $this->db->getConnection();
-    $sql = "DELETE FROM `category` WHERE `categoryID` = ?";
+    $sql = "DELETE FROM `category` WHERE `id` = ?";
     $stmt = $conn->prepare($sql);
     $result = $stmt->execute([$id]);
     return $result;

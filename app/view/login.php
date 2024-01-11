@@ -28,7 +28,7 @@
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
-              <form action="" method="POST">
+              <form action="?uri=auth/login" method="POST">
                 <div class="form-outline form-white mb-4">
                   <input name="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Email</label>
@@ -41,7 +41,6 @@
                 <span id="error" style="display:none; color: red;">emaile ou password inccorect!!</span>
 
 
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
                 <button type="submit" class="btn btn-outline-light btn-lg px-5" name="submit" value="login">Login</button>
               </form>

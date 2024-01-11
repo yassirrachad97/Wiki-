@@ -65,7 +65,7 @@ class AuthModel {
        
         $stmt->execute([$email]);
         $result = $stmt->fetchObject();
-        if ($result && password_verify($password, $result->password)) {
+        if ($result && password_verify($password, $result->pasword)) {
 
             return $result;
            
@@ -74,8 +74,9 @@ class AuthModel {
         }
     }
 
-    public function getUserCount()
-    {  $conn = $this->db->getConnection();
+   static public function getUserCount()
+    {   $db = new Database();
+         $conn = $db->getConnection();
 
         $sql = "SELECT COUNT(*) as userCount FROM users";
         $stmt = $conn->prepare($sql);
@@ -83,29 +84,35 @@ class AuthModel {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getCategoryCount()
+    static public function getCategoryCount()
     {
-        $conn = $this->db->getConnection();
+        $db = new Database();
+         $conn = $db->getConnection();
 
-        $sql = "SELECT COUNT(*) as categoryCount FROM category";
+
+        $sql = "SELECT COUNT(*) as countCategory FROM category";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getTagCount()
-    {
-        $conn = $this->db->getConnection();
-        $sql = "SELECT COUNT(*) as tagCount FROM tags";
+    static public function getTagCount()
+    { $db = new Database();
+        $conn = $db->getConnection();
+
+       
+        $sql = "SELECT COUNT(*) as countTag FROM tags";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function getWikiCount()
+   static public function getWikiCount()
     {
-        $conn = $this->db->getConnection();
-        $sql = "SELECT COUNT(*) as wikiCount FROM wiki";
+        $db = new Database();
+        $conn = $db->getConnection();
+
+        $sql = "SELECT COUNT(*) as countWiki FROM wiki";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);

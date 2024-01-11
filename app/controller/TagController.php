@@ -6,12 +6,12 @@ use App\Model\TagModel;
 class TagController {
 
     public function Create(){
-         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='addtag') {
+         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='addTags') {
             $name = $_POST['tag'];
             $tag = new TagModel();
             $tag->setName($name);
            if($tag->create()){ 
-            $this->getTags();
+            header('location:?uri=tag/getTags');
            } 
            
         } 
@@ -20,21 +20,10 @@ class TagController {
     public function getTags(){
          $tag = new TagModel();
          $tags=$tag->findAll();
-         include_once '../app/View/tags.php';
+         include_once '../app/View/admin/tags.php';
     }
 
-    public function search() {
-        if (isset($_GET['search'])) {
-            $searchTerm = $_GET['search'];
-            $tag = new TagModel();
-            $searchResults = $tag->searchByName($searchTerm);
-        if($searchResults){
-            include_once '../app/View/admin/includesAjax/tags.php';
-            exit(); 
-        }
-            
-        }
-    }
+ 
 
     public function update(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='modifierTag') {
@@ -43,7 +32,8 @@ class TagController {
             $tag = new TagModel();
             $tag->setName($name);
            if($tag->update($id)){ 
-            $this->getTags();
+            header('location:?uri=tag/getTags');
+
            } 
            
         } 
@@ -57,12 +47,21 @@ class TagController {
                 $result = $tag->delete($id);
     
                if ($result) { 
-                $this->getTags();
+                header('location:?uri=tag/getTags');
+
                }
           
         }
     }
-  
+    public function getTagsForFormulaire(){
+        $tag = new TagModel();
+       return $tags=$tag->findAll();
+   }
+
+   public function getTagsForFilter(){
+    $tag = new TagModel();
+   return $tags=$tag->findAll();
+}
 }
 
 ?>

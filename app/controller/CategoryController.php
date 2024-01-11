@@ -4,14 +4,16 @@ namespace App\Controller;
 use App\Model\CategoryModel;
 
 class CategoryController {
-
+public function index(){
+    $this->getCategories();
+}
     public function Create(){
          if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='addCategorie') {
             $name = $_POST['category'];
             $category = new CategoryModel();
             $category->setName($name);
            if($category->create()){ 
-            $this->getCategories();
+           header('location:?uri=category/index');
            } 
            
         } 
@@ -20,21 +22,10 @@ class CategoryController {
     public function getCategories(){
          $category = new CategoryModel();
          $categoreis=$category->findAll();
-         include_once '../app/View/category.php';
+         include_once '../app/view/admin/category.php';
     }
 
-    public function search() {
-        if (isset($_GET['search'])) {
-            $searchTerm = $_GET['search'];
-            $category = new CategoryModel();
-            $searchResults = $category->searchByName($searchTerm);
-        if($searchResults){
-            include_once '../app/View/includesAjax/category.php';
-            exit(); 
-        }
-            
-        }
-    }
+
 
     public function update(){
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='modifierCategorie') {
@@ -43,7 +34,7 @@ class CategoryController {
             $category = new CategoryModel();
             $category->setName($name);
            if($category->update($id)){ 
-            $this->getCategories();
+            header('location:?uri=category/index');
            } 
            
         } 
@@ -57,10 +48,20 @@ class CategoryController {
                 $result = $category->delete($id);
     
                if ($result) { 
-                $this->getCategories();
+                header('location:?uri=category/index');
+
                }
           
         }
+    }
+    public function getCategoriesFourFormulaire(){
+        $category = new CategoryModel();
+        return  $categoreis=$category->findAll();
+    }
+    
+    public function getCategoriesFourFilter(){
+        $category = new CategoryModel();
+        return  $categoreis=$category->findAll();
     }
   
 }

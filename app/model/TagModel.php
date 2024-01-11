@@ -48,7 +48,7 @@ class TagModel{
    public function update($id){
        
     $conn = $this->db->getConnection();
-    $sql = "UPDATE `tags`   SET `name` = ?  WHERE `tagID` = ? ";
+    $sql = "UPDATE `tags`   SET `name` = ?  WHERE `id` = ? ";
     $stmt = $conn->prepare($sql);
     $result=  $stmt->execute([$this->getName(), $id]);
     if($result){
@@ -58,20 +58,11 @@ class TagModel{
 
 }
 
-   public function searchByName($searchTerm) {
-    $conn = $this->db->getConnection();
-    $sql = "SELECT * FROM `tags` WHERE `name` LIKE ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute(["%$searchTerm%"]);
-    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-    if ($result) {
-        return $result;
-    }
-}
+ 
 
 public function delete($id) {
     $conn = $this->db->getConnection();
-    $sql = "DELETE FROM `tags` WHERE `tagID` = ?";
+    $sql = "DELETE FROM `tags` WHERE `id` = ?";
     $stmt = $conn->prepare($sql);
     $result = $stmt->execute([$id]);
     return $result;

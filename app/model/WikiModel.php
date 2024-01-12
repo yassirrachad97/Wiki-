@@ -121,6 +121,16 @@ public function findOne($id) {
     return $result;
 }
 
+public function searchByName($searchTerm) {
+    $conn = $this->db->getConnection();
+    $sql = "SELECT * FROM `wiki` WHERE `title` LIKE ?  and `is_archived` IS NULL";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute(["%$searchTerm%"]);
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    if ($result) {
+        return $result;
+    }
+}
 }
 
 

@@ -5,7 +5,7 @@ require_once '../app/view/header.php';
 <body>
 
   <header>
-  <h2><?=$wikis->title?></h2>
+  <h1><?=$wikis->title?></h1>
   </header>
 <div class="row w-80 m-4 ">
       <div class="col-lg-5 col-sm-12">
@@ -24,7 +24,8 @@ require_once '../app/view/header.php';
   <div class="row mt-3">
     <div class="col-12">
       <hr>
-      <p class="text-end">Auteur : <span class="text-primary"><?= $wikis->firstname ?> <?= $wikis->lastname ?></span></p>
+      <p class="text-start">Auteur : <span class="text-dark" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"><?= $wikis->firstname ?> <?= $wikis->lastname ?></span></p>
+      <p class="text-start">date : <span class="text-dark" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif"><?= $wikis->creation_date  ?></span></p>
 
     </div>
   </div>

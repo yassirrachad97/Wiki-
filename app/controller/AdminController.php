@@ -4,6 +4,9 @@ namespace App\Controller;
 use App\Model\AuthModel;
 
 class AdminController {
+
+
+
 public function statistique(){
     $countUser= AuthModel::getUserCount();
     $countCategory= AuthModel::getCategoryCount();

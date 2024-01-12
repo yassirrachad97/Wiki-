@@ -5,6 +5,10 @@ use App\Model\WikiModel;
 
 class WikiController {
 
+    public function index(){
+        $this->getallwikiforuser();
+    }
+
     public function getWiki(){
 
      

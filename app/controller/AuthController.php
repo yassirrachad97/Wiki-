@@ -6,11 +6,11 @@ use App\Model\AuthModel;
 class AuthController {
 
     public function index(){
-      include "../app/View/login.php";
+      include "../app/view/login.php";
     }
 
     public function register(){
-        include "../app/View/register.php";
+        include "../app/view/register.php";
       }
 
       public function registration() {

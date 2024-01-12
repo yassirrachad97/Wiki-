@@ -5,23 +5,23 @@ include_once '../app/view/admin/header.php';
 <main>
  <div class="d-flex justify-content-between gap-3 mb-4">
   <div class="card w-25 shadow-sm">
-    <h5 class="card-title">Number of Users</h5>
+    <h5 class="card-title">Nombre des utilisateur</h5>
     <p class="card-text"><?php echo $countUser[0]->userCount; ?></p>
 
   </div>
 
   <div class="card w-25 shadow-sm">
-    <h5 class="card-title">Number of Categories</h5>
+    <h5 class="card-title">Nombre des Categories</h5>
     <p class="card-text"><?php echo $countCategory[0]->countCategory; ?></p>
   </div>
 
   <div class="card w-25 shadow-sm">
-    <h5 class="card-title">Number of Tags</h5>
+    <h5 class="card-title">Nombre des Tags</h5>
     <p class="card-text"><?php echo $countTag[0]->countTag; ?></p>
   </div>
 
   <div class="card w-25 shadow-sm">
-    <h5 class="card-title">Number of Wikis</h5>
+    <h5 class="card-title">Nombre des Wikis</h5>
     <p class="card-text"><?php echo $countWiki[0]->countWiki; ?></p>
   </div>
  </div>

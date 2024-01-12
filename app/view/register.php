@@ -44,7 +44,6 @@
                   <input name="pasword" type="password" id="typePasswordX" class="form-control form-control-lg" />
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
-                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
 
                 <button type="submit" class="btn btn-outline-light btn-lg px-5" name="submit" value="regester">sign up</button>
               </form>

@@ -39,9 +39,9 @@ class WikiController {
     }
 
     // website
-    public function getWikisForUser(){
+    public function getallwikiforuser(){
         $wiki = new WikiModel();
-        $wikis=$wiki->findAll();
+        $wikis=$wiki->findAllwiki();
 
         $category = new CategoryController();
         $categoreis = $category->getCategoriesFourFilter(); 
@@ -49,7 +49,7 @@ class WikiController {
         $tag = new TagController();
         $tags = $tag->getTagsForFilter(); 
    
-        include_once '../app/View/user/wikis.php';
+        include_once '../app/view/user/home.php';
    }
 
 
@@ -104,7 +104,7 @@ public function deleteWiki() {
 public function detailwiki($id){
     $wikiModel = new WikiModel();
     $wikis= $wikiModel->findOne($id);
-    include_once '../app/View/user/detailwiki.php';
+    include_once '../app/view/user/wiki.php';
 }
 
 

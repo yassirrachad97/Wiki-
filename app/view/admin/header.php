@@ -13,7 +13,7 @@
   <div class="col-2 position-fixed d-flex flex-column justify-content-between" style="background-color: #f6f6f6; height: 100vh">
     <div>
 
-    <a class="navbar-brand" href="#"><img src="./public/assets/img/wiki-logo.png" alt="" width="50" height="40"><span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color :gray">Wi</span><span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color:brown">Ki</span></a>
+    <a class="navbar-brand" href="?uri=wiki/getallwikiforuser"><img src="./public/assets/img/wiki-logo.png" alt="" width="50" height="40"><span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color :gray">Wi</span><span style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color:brown">Ki</span></a>
       <hr class="mx-3" />
 
       <?php  if(  $_SESSION['role_id']==='2') {   ?>
@@ -98,6 +98,7 @@
             <?=    $_SESSION['firstname']." ". $_SESSION['lastname'] ?>
           </button>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="?uri=wiki/getallwikiforuser">voir le site web</a></li>
             <li><a class="dropdown-item" href="?uri=auth/logout">logout</a></li>
            
           </ul>

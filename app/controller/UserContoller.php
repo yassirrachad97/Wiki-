@@ -6,11 +6,11 @@ use App\Model\UserModel;
 class UserController {
 
     public function index(){
-      include "../app/View/user/home.php";
+      include "../app/view/user/home.php";
     }
 
     public function getwikis(){
-        include "../app/View/user/wikis.php";
+        include "../app/view/user/wiki.php";
       }
   
 }

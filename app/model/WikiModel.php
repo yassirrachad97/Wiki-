@@ -10,13 +10,7 @@ use App\Database\Database;
 class WikiModel{
     private $db;
     private $name;
-    private $urlImg;
-    private $title;
-    private $content;
-    private $author;
-
-    private $categoryId;
-    private $tagsId;
+   
 
     public function __construct() {
         $this->db = new Database();
@@ -39,6 +33,17 @@ class WikiModel{
             return $result;
         }
     
+       }
+
+       public function findAllwiki(){
+        $conn = $this->db->getConnection();
+        $sql = "SELECT * FROM `wiki` where is_archived is null ";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        if($result){
+            return $result;
+        }
        }
 
        public function findAllForAdmin(){
@@ -104,45 +109,17 @@ public function updateWiki($wikiID, $title, $content, $categoryID) {
 }
 
 
-
-
-
-
-
-
-public function  findOne($id){
+public function findOne($id) {
     $conn = $this->db->getConnection();
-    $sql = "SELECT * FROM `wikis`  join users on  wikis.userID =  users.userID WHERE wikiID = ?  and `deletedAt` IS NULL";
+    $sql = "SELECT wiki.*, users.firstname, users.lastname 
+            FROM `wiki`
+            JOIN users ON wiki.id_user = users.id
+            WHERE wiki.id = ? AND `is_archived` IS NULL";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$id]);
     $result = $stmt->fetchObject();
-    return $result ;
+    return $result;
 }
-  
-
-
-
-
-static public function findFour(){
-    $db = new Database();
-    $conn = $db->getConnection();
-    $sql = "SELECT * FROM `wikis` where `deletedAt` IS NULL ORDER BY wikiID DESC LIMIT 4 ";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
-    if($result){
-        return $result;
-    }
-}
-
-
-
-
-
-
-
-
-
 
 }
 

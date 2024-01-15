@@ -3,7 +3,6 @@
 namespace App\Model;
 
 use PDO;
-use PDOException;
 
 use App\Database\Database;
 
@@ -14,7 +13,6 @@ class AuthModel {
     private $lastname;
     private $email;
     private $password;
-    private $role_id;
 
     public function __construct() {
         $this->db = new Database();

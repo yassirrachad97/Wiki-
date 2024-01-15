@@ -28,7 +28,7 @@
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
               <p class="text-white-50 mb-5">Please enter your login and password!</p>
-              <form action="?uri=auth/login" method="POST">
+              <form action="?uri=auth/login" method="POST" onsubmit="return validateForm()">
                 <div class="form-outline form-white mb-4">
                   <input name="email" type="email" id="typeEmailX" class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Email</label>
@@ -68,7 +68,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 
-    
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>

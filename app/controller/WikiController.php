@@ -111,9 +111,17 @@ public function detailwiki($id){
     include_once '../app/view/user/wiki.php';
 }
 
-
-
-
+public function searchtwo() {
+    if (isset($_GET['search'])) {
+        $searchTerm = $_GET['search'];
+        $wiki = new WikiModel();
+        $searchResults = $wiki->searchByName($searchTerm);
+    if($searchResults){
+        include_once '../app/view/user/searchWiki.php';
+    }
+        
+  }
+}
 
    
 }

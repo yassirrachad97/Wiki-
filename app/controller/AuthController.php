@@ -15,10 +15,15 @@ class AuthController {
 
       public function registration() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['submit']=='regester') {
-            $firstname = $_POST['firstname'];
-            $lastname = $_POST['lastname'];
-            $email = $_POST['email'];
-            $password = $_POST['pasword'];
+          $firstname = htmlspecialchars($_POST['firstname']);
+          $lastname = htmlspecialchars($_POST['lastname']);
+          $email = htmlspecialchars($_POST['email']);
+          $password = htmlspecialchars($_POST['pasword']);
+          if (empty($firstname) || empty($lastname) || empty($email) || empty($password)) {
+            // Handle validation error (e.g., redirect back to registration form with an error message)
+            include "../app/view/register.php";
+            return;
+        }
             $newUser = new AuthModel();
             $newUser->setFirstname($firstname);
             $newUser->setLastname($lastname);

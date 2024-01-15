@@ -37,7 +37,7 @@ class WikiModel{
 
        public function findAllwiki(){
         $conn = $this->db->getConnection();
-        $sql = "SELECT * FROM `wiki` where is_archived is null ";
+        $sql = "SELECT * FROM `wiki` where is_archived is null ORDER BY id DESC LIMIT 6 ";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
